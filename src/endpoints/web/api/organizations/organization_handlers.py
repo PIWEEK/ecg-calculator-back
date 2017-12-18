@@ -10,7 +10,7 @@ from endpoints.repository import db
 from endpoints.web.handler import BaseHandler
 # from web.decorators import login_required
 
-from endpoints.web.api.loaders_and_checkers import *
+from endpoints.web.api.loaders_and_checkers import load_organization
 from endpoints.web.api import exceptions
 
 

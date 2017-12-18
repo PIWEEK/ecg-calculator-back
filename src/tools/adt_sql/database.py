@@ -1,5 +1,5 @@
 from sqlalchemy import create_engine, MetaData, Table, event, DDL
-from sqlalchemy import Column, Integer, String, Date, DateTime, Float, ForeignKey, Boolean, Text
+from sqlalchemy import Column, Integer, String, Date, DateTime, Float, ForeignKey, Boolean, Text, JSON
 from sqlalchemy.sql import select, insert, update, delete, func
 from sqlalchemy_utils.types.arrow import ArrowType
 from contextlib import contextmanager
@@ -54,7 +54,8 @@ class SQLADTDatabase:
                 self.truncate_table(context, attr)
 
     def truncate_table(self, context, table):
-        context.conn.execute("TRUNCATE TABLE {} CASCADE".format(table.name))
+        # Restart all sequences owned by the table, and truncate depending tables.
+        context.conn.execute("TRUNCATE TABLE {} RESTART IDENTITY CASCADE".format(table.name))
 
     def insert_adt(self, context, table, instance):
         values = to_plain(instance)
@@ -98,8 +99,12 @@ class SQLADTDatabase:
                 for key, value in row.items():
                     if key.startswith(name):
                         data[key[len(name)+1:]] = value
-                instance = the_class(**data)
-                context.add(instance)
+
+                instance = context.get(the_class, data["id"])
+                if not instance:
+                    instance = the_class(**data)
+                    context.add(instance)
+
                 if the_class == main_class:
                     if not instance.id in [adt.id for adt in adts]:
                         adts.append(instance)
@@ -176,6 +181,8 @@ def _field_to_column(name, field):
         column_type = ArrowType
     elif field.type == bool:
         column_type = Boolean
+    elif field.type == dict:
+        column_type = JSON
     else:
         raise ValueError("Cannot generate column for field type {}".format(field.type))
     is_pk = (name == "id")

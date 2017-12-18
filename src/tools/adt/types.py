@@ -102,6 +102,11 @@ class ArrowDateTimeField(Field):
         super().__init__(type=arrow.Arrow, *args, **kwargs)
 
 
+class DictField(Field):
+    def __init__(self, *args, **kwargs):
+        super().__init__(type=dict, *args, **kwargs)
+
+
 class ADT_WITH_ID(ADT):
     id = IntField(null=True)
 

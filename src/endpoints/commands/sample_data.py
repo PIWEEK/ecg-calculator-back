@@ -1,6 +1,6 @@
-from core.organizations import organization_entities, organization_actions
 from tools.adt_sql.database import db_context
 
+from core.organizations import organization_entities, organization_actions
 from endpoints.repository import db, organization_repository
 
 
@@ -11,7 +11,7 @@ def sample_data():
 def create_organizations():
     with db_context(db) as context:
 
-         organization_repository.create(context, organization_entities.Organization(
+        organization_repository.create(context, organization_entities.Organization(
             name = "Primera organización",
             address = "mikasa 1",
             state = "mipueblo 1",
@@ -21,7 +21,7 @@ def create_organizations():
             description = "Esto es una descripción 1",
         ))
 
-         organization_repository.create(context, organization_entities.Organization(
+        organization_repository.create(context, organization_entities.Organization(
             name = "Segunda organización",
             address = "mikasa 2",
             state = "mipueblo 2",
@@ -31,7 +31,7 @@ def create_organizations():
             description = "Esto es una descripción 2",
         ))
 
-         organization_repository.create(context, organization_entities.Organization(
+        organization_repository.create(context, organization_entities.Organization(
             name = "Tercera organización",
             address = "mikasa 3",
             state = "mipueblo 3",

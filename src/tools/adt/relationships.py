@@ -61,6 +61,10 @@ class Context:
                                 foreign_instance.__dict__[relationship.role_n.role_name] = []
                             foreign_instance.__dict__[relationship.role_n.role_name].append(instance)
 
+    def get(self, instance_class, instance_id):
+        instances = self._storage.get(instance_class, {})
+        return instances.get(instance_id, None)
+
     def __getattr__(self, attr_name):
         return partial(_get_related, self, attr_name)
 

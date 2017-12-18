@@ -1,4 +1,4 @@
-from tools.adt.types import ADT, ADT_WITH_ID, Field, StrField, IntField
+from tools.adt.types import ADT, ADT_WITH_ID, StrField
 
 
 class Organization(ADT_WITH_ID):

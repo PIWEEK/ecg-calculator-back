@@ -1,0 +1,12 @@
+anillo==0.1.7
+arrow==0.12.0
+click==6.7
+psycopg2==2.7.3.2
+py==1.5.2
+pytest==3.2.5
+python-dateutil==2.6.1
+six==1.11.0
+-e git://github.com/kaleidos/skame.git@c1415e279f3d62a18ac9d9103c70fc8df9677fc2#egg=skame
+SQLAlchemy==1.1.15
+SQLAlchemy-Utils==0.32.21
+Werkzeug==0.12.2

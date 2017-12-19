@@ -3,7 +3,7 @@ import os.path
 from anillo.handlers.routing import router as anillo_router, optionized_url as url
 from anillo.http import responses
 
-from endpoints.web.api.assessments import assessment_handlers, form_handlers
+from endpoints.web.api.assessments import assessment_handlers, form_handlers, topic_handlers
 from endpoints.web.api.organizations import organization_handlers
 
 PREFIX = "/api/v1"
@@ -20,10 +20,16 @@ urls = [
         assessment_handlers.AssessmentsList(), methods=["get"]),
     url(PREFIX + "/assessments/<string:assessment_id>",
         assessment_handlers.AssessmentDetail(), methods=["get"]),
+    url(PREFIX + "/assessments/<string:assessment_id>/stakeholders",
+        assessment_handlers.AssessmentStakeholdersList(), methods=["get"]),
     url(PREFIX + "/assessments/<string:assessment_id>/forms",
         form_handlers.AssessmentFormsList(), methods=["get"]),
     url(PREFIX + "/assessments/<string:assessment_id>/forms/<string:form_id>",
         form_handlers.AssessmentFormDetail(), methods=["get"]),
+    url(PREFIX + "/assessments/<string:assessment_id>/topics",
+        topic_handlers.AssessmentTopicsList(), methods=["get"]),
+    url(PREFIX + "/assessments/<string:assessment_id>/topics/<string:topic_id>",
+        topic_handlers.AssessmentTopicDetail(), methods=["get"]),
 
     # Organizations
     url(PREFIX + "/organizations",

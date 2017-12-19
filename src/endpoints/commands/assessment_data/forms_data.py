@@ -1,38 +1,14 @@
 from tools.adt_sql.database import db_context
 
-from core.assessments import assessment_entities
 from core.assessments.forms import form_entities
 
 from endpoints.repository import (
-    db, assessment_repository,
-    form_repository, question_repository,
+    db, form_repository, question_repository,
     sub_form_repository, sub_question_repository
 )
 
-
-def assessment_data():
-    with db_context(db) as context:
-        db.truncate_table(context, db.assessments)
-        db.truncate_table(context, db.forms)
-        db.truncate_table(context, db.questions)
-        db.truncate_table(context, db.sub_forms)
-        db.truncate_table(context, db.sub_questions)
-
-    assessment_id = create_assessments()
-    create_forms(assessment_id)
-
-
-def create_assessments():
-    with db_context(db) as context:
-
-        assessment = assessment_repository.create(context, assessment_entities.Assessment(
-            name = "Balance del Bien Común",
-            version = "5.02",
-            year = "2017",
-            description = "Bla bla bla...",
-        ))
-
-        return assessment
+from .economic_sectors import ECONOMIC_SECTORS
+from .regions import REGIONS
 
 
 def create_forms(assessment):
@@ -44,6 +20,9 @@ def create_forms(assessment):
 
 
 def create_form_a(assessment):
+    """
+    A: Providers
+    """
     with db_context(db) as context:
 
         form = form_repository.create(context, form_entities.Form(
@@ -73,17 +52,44 @@ def create_form_a(assessment):
 
         sub_question_repository.create(context, form_entities.SubQuestion(
             sub_form_id = sub_form.id,
+            order = 1,
             title = "Sector",
             description = "",
             data_type = "select",
             options = {
                 "caption": "Seleccione del catálogo",
-                "choices": [
-                    "A - Agricultura, silvicultura y pesca",
-                    "B - Explotación de minas y canteras",
-                    "C - Industrias manufactureras",
-                ]
+                "choices": ECONOMIC_SECTORS
             }
+        ))
+
+        sub_question_repository.create(context, form_entities.SubQuestion(
+            sub_form_id = sub_form.id,
+            order = 2,
+            title = "Descripción",
+            description = "",
+            data_type = "string",
+            options = None
+        ))
+
+        sub_question_repository.create(context, form_entities.SubQuestion(
+            sub_form_id = sub_form.id,
+            order = 3,
+            title = "Región de origen",
+            description = "",
+            data_type = "select",
+            options = {
+                "caption": "Seleccione del catálogo",
+                "choices": REGIONS
+            }
+        ))
+
+        sub_question_repository.create(context, form_entities.SubQuestion(
+            sub_form_id = sub_form.id,
+            order = 4,
+            title = "Gastos",
+            description = "",
+            data_type = "currency",
+            options = None
         ))
 
         question_repository.create(context, form_entities.Question(
@@ -96,16 +102,26 @@ def create_form_a(assessment):
             data_type = "select",
             options = {
                 "caption": "Seleccione del catálogo",
-                "choices": [
-                    "A - Agricultura, silvicultura y pesca",
-                    "B - Explotación de minas y canteras",
-                    "C - Industrias manufactureras",
-                ]
+                "choices": REGIONS
             }
+        ))
+
+        question_repository.create(context, form_entities.Question(
+            form_id = form.id,
+            order = 4,
+            title = "Gastos del resto de proveedores",
+            quick_description = "",
+            full_description = "",
+            examples = "",
+            data_type = "currency",
+            options = None
         ))
 
 
 def create_form_b(assessment):
+    """
+    B: Owners and financial providers
+    """
     with db_context(db) as context:
 
         form = form_repository.create(context, form_entities.Form(
@@ -183,13 +199,83 @@ def create_form_b(assessment):
 
 
 def create_form_c(assessment):
-    pass
+    """
+    C: Workers
+    """
+    with db_context(db) as context:
+
+        form = form_repository.create(context, form_entities.Form(
+            assessment_id = assessment.id,
+            code = "C",
+            name = "Trabajadores",
+            description = "Blo blo blo...",
+        ))
+
+        question_repository.create(context, form_entities.Question(
+            form_id = form.id,
+            order = 1,
+            title = "Cantidad de trabajadores (equivalentes a jornada completa)",
+            quick_description = "",
+            full_description = "",
+            examples = "",
+            data_type = "integer",
+            options = None,
+        ))
 
 
 def create_form_d(assessment):
-    pass
+    """
+    D: Clients and other companies in the sector
+    """
+    with db_context(db) as context:
+
+        form = form_repository.create(context, form_entities.Form(
+            assessment_id = assessment.id,
+            code = "D",
+            name = "Clientes y otras empresas del sector",
+            description = "Blu blu blu...",
+        ))
+
+        question_repository.create(context, form_entities.Question(
+            form_id = form.id,
+            order = 1,
+            title = "Facturación (en euros)",
+            quick_description = "",
+            full_description = "",
+            examples = "",
+            data_type = "currency",
+            options = None,
+        ))
 
 
 def create_form_e(assessment):
-    pass
+    """
+    E: Social environment
+    """
+    with db_context(db) as context:
+
+        form = form_repository.create(context, form_entities.Form(
+            assessment_id = assessment.id,
+            code = "E",
+            name = "Entorno social",
+            description = "Blz blz blz...",
+        ))
+
+        question_repository.create(context, form_entities.Question(
+            form_id = form.id,
+            order = 1,
+            title = "Tamaño de la empresa",
+            quick_description = "",
+            full_description = "",
+            examples = "",
+            data_type = "select",
+            options = {
+                "caption": "Seleccione una opción",
+                "choices": [
+                    ("micropyme", "micropyme"),
+                    ("pyme", "pyme"),
+                    ("gran empresa", "gran empresa"),
+                ]
+            }
+        ))
 

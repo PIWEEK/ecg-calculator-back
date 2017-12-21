@@ -101,7 +101,7 @@ class SQLADTDatabase:
                         data[key[len(name)+1:]] = value
 
                 instance = context.get(the_class, data["id"])
-                if not instance:
+                if not instance and data["id"]:
                     instance = the_class(**data)
                     context.add(instance)
 

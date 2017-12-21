@@ -54,13 +54,13 @@ class FormRepository(SQLADTRepository):
                 [self.db.forms, self.db.questions, self.db.sub_forms, self.db.sub_questions],
                 use_labels=True
             ).select_from(
-                self.db.forms.join(
+                self.db.forms.outerjoin(
                     self.db.questions,
                     self.db.forms.c.id == self.db.questions.c.form_id
-                ).join(
+                ).outerjoin(
                     self.db.sub_forms,
                     self.db.forms.c.id == self.db.sub_forms.c.form_id
-                ).join(
+                ).outerjoin(
                     self.db.sub_questions,
                     self.db.sub_forms.c.id == self.db.sub_questions.c.sub_form_id
                 )

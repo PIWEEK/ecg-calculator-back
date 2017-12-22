@@ -54,7 +54,9 @@ def create_topic_a1(assessment, stakeholders):
             code = "A1.1",
             title = "Condiciones de trabajo e impacto social en la cadena de suministro",
             quick_description = "",
-            full_description = "",
+            full_description = "El objetivo es que la empresa se informe activamente sobre los productos y servicios que " + \
+            "compra, y contribuya, gracias a las medidas adecuadas, a crear impactos positivos y condiciones " + \
+            "dignas en toda su cadena de suministro.",
             examples = "",
             is_negative = False,
         ))
@@ -66,7 +68,10 @@ def create_topic_a1(assessment, stakeholders):
             code = "A1.2",
             title = "Aspecto negativo: vulneración de la dignidad humana en la cadena de suministro",
             quick_description = "",
-            full_description = "",
+            full_description = "La producción de muchos bienes de uso diario está relacionada con graves problemas sociales. " + \
+            "Debido a los procesos de producción globales y complejos, casi no hay ninguna empresa ni " + \
+            "ninguna persona que pueda evitar toda vulneración de la dignidad humana en la cadena de " + \
+            "suministro.",
             examples = "",
             is_negative = True,
         ))
@@ -94,7 +99,10 @@ def create_topic_a2(assessment, stakeholders):
             code = "A2.1",
             title = "Actitud ética con proveedores / distribuidores directos",
             quick_description = "",
-            full_description = "",
+            full_description = "La solidaridad y la justicia al tratar con proveedores directos se refeja especialmente en la " + \
+            "organización de las relaciones comerciales en forma de precios justos, condiciones de pago y " + \
+            "entrega. A parte de esto, es importante realizar un reparto justo de los ingresos dentro de la " + \
+            "cadena de valor para garantizar una existencia económica de todas las partes implicadas.",
             examples = "",
             is_negative = False,
         ))
@@ -106,7 +114,11 @@ def create_topic_a2(assessment, stakeholders):
             code = "A2.2",
             title = "Promoción de la justicia y la solidaridad en toda la cadena de suministro",
             quick_description = "",
-            full_description = "",
+            full_description = "Nulla quis lorem ut libero malesuada feugiat. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem." + \
+            "Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus suscipit tortor eget felis porttitor volutpat." + \
+            "Donec rutrum congue leo eget malesuada. Curabitur aliquet quam id dui posuere blandit." + \
+            "Quisque velit nisi, pretium ut lacinia in, elementum id enim. Vivamus suscipit tortor eget felis porttitor volutpat." + \
+            "Cras ultricies ligula sed magna dictum porta. Vivamus suscipit tortor eget felis porttitor volutpat.",
             examples = "",
             is_negative = False,
         ))
@@ -118,7 +130,11 @@ def create_topic_a2(assessment, stakeholders):
             code = "A2.3",
             title = "Aspecto negativo: abuso de poder de mercado frente a proveedores / distribuidores",
             quick_description = "",
-            full_description = "",
+            full_description = "Nulla quis lorem ut libero malesuada feugiat. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem." + \
+            "Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus suscipit tortor eget felis porttitor volutpat." + \
+            "Donec rutrum congue leo eget malesuada. Curabitur aliquet quam id dui posuere blandit." + \
+            "Quisque velit nisi, pretium ut lacinia in, elementum id enim. Vivamus suscipit tortor eget felis porttitor volutpat." + \
+            "Cras ultricies ligula sed magna dictum porta. Vivamus suscipit tortor eget felis porttitor volutpat.",
             examples = "",
             is_negative = True,
         ))
@@ -135,7 +151,7 @@ def create_topic_a3(assessment, stakeholders):
             stakeholder_id = stakeholders["providers"].id,
             slug = "providers_sustainability",
             code = "A3",
-            name = "Dignidad humana en la cadena de suministro",
+            name = "Sostenibilidad medioambiental en la cadena de suministro",
             description = "Bla bla bla...",
         ))
 
@@ -146,7 +162,11 @@ def create_topic_a3(assessment, stakeholders):
             code = "A3.1",
             title = "Impacto medioambiental en la cadena de suministro",
             quick_description = "",
-            full_description = "",
+            full_description = "Nulla quis lorem ut libero malesuada feugiat. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem." + \
+            "Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus suscipit tortor eget felis porttitor volutpat." + \
+            "Donec rutrum congue leo eget malesuada. Curabitur aliquet quam id dui posuere blandit." + \
+            "Quisque velit nisi, pretium ut lacinia in, elementum id enim. Vivamus suscipit tortor eget felis porttitor volutpat." + \
+            "Cras ultricies ligula sed magna dictum porta. Vivamus suscipit tortor eget felis porttitor volutpat.",
             examples = "",
             is_negative = False,
         ))
@@ -158,7 +178,11 @@ def create_topic_a3(assessment, stakeholders):
             code = "A3.2",
             title = "Aspecto negativo: impacto medioambiental desproporcionado en la cadena de suministro",
             quick_description = "",
-            full_description = "",
+            full_description = "Nulla quis lorem ut libero malesuada feugiat. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem." + \
+            "Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus suscipit tortor eget felis porttitor volutpat." + \
+            "Donec rutrum congue leo eget malesuada. Curabitur aliquet quam id dui posuere blandit." + \
+            "Quisque velit nisi, pretium ut lacinia in, elementum id enim. Vivamus suscipit tortor eget felis porttitor volutpat." + \
+            "Cras ultricies ligula sed magna dictum porta. Vivamus suscipit tortor eget felis porttitor volutpat.",
             examples = "",
             is_negative = True,
         ))
@@ -186,7 +210,11 @@ def create_topic_a4(assessment, stakeholders):
             code = "A4.1",
             title = "Transparencia y participación democrática de los proveedores / distribuidores",
             quick_description = "",
-            full_description = "",
+            full_description = "Nulla quis lorem ut libero malesuada feugiat. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem." + \
+            "Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus suscipit tortor eget felis porttitor volutpat." + \
+            "Donec rutrum congue leo eget malesuada. Curabitur aliquet quam id dui posuere blandit." + \
+            "Quisque velit nisi, pretium ut lacinia in, elementum id enim. Vivamus suscipit tortor eget felis porttitor volutpat." + \
+            "Cras ultricies ligula sed magna dictum porta. Vivamus suscipit tortor eget felis porttitor volutpat.",
             examples = "",
             is_negative = False,
         ))
@@ -198,7 +226,11 @@ def create_topic_a4(assessment, stakeholders):
             code = "A4.2",
             title = "Promoción de la transparencia y participación democrática en toda la cadena de suministro",
             quick_description = "",
-            full_description = "",
+            full_description = "Nulla quis lorem ut libero malesuada feugiat. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem." + \
+            "Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus suscipit tortor eget felis porttitor volutpat." + \
+            "Donec rutrum congue leo eget malesuada. Curabitur aliquet quam id dui posuere blandit." + \
+            "Quisque velit nisi, pretium ut lacinia in, elementum id enim. Vivamus suscipit tortor eget felis porttitor volutpat." + \
+            "Cras ultricies ligula sed magna dictum porta. Vivamus suscipit tortor eget felis porttitor volutpat.",
             examples = "",
             is_negative = False,
         ))
@@ -226,7 +258,11 @@ def create_topic_b1(assessment, stakeholders):
             code = "B1.1",
             title = "Independencia financiera: autofinanciación",
             quick_description = "",
-            full_description = "",
+            full_description = "Nulla quis lorem ut libero malesuada feugiat. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem." + \
+            "Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus suscipit tortor eget felis porttitor volutpat." + \
+            "Donec rutrum congue leo eget malesuada. Curabitur aliquet quam id dui posuere blandit." + \
+            "Quisque velit nisi, pretium ut lacinia in, elementum id enim. Vivamus suscipit tortor eget felis porttitor volutpat." + \
+            "Cras ultricies ligula sed magna dictum porta. Vivamus suscipit tortor eget felis porttitor volutpat.",
             examples = "",
             is_negative = False,
         ))
@@ -238,7 +274,11 @@ def create_topic_b1(assessment, stakeholders):
             code = "B1.2",
             title = "Financiación externa orientada al Bien Común",
             quick_description = "",
-            full_description = "",
+            full_description = "Nulla quis lorem ut libero malesuada feugiat. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem." + \
+            "Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus suscipit tortor eget felis porttitor volutpat." + \
+            "Donec rutrum congue leo eget malesuada. Curabitur aliquet quam id dui posuere blandit." + \
+            "Quisque velit nisi, pretium ut lacinia in, elementum id enim. Vivamus suscipit tortor eget felis porttitor volutpat." + \
+            "Cras ultricies ligula sed magna dictum porta. Vivamus suscipit tortor eget felis porttitor volutpat.",
             examples = "",
             is_negative = False,
         ))
@@ -250,7 +290,11 @@ def create_topic_b1(assessment, stakeholders):
             code = "B1.3",
             title = "Actitud ética de los proveedores financieros",
             quick_description = "",
-            full_description = "",
+            full_description = "Nulla quis lorem ut libero malesuada feugiat. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem." + \
+            "Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus suscipit tortor eget felis porttitor volutpat." + \
+            "Donec rutrum congue leo eget malesuada. Curabitur aliquet quam id dui posuere blandit." + \
+            "Quisque velit nisi, pretium ut lacinia in, elementum id enim. Vivamus suscipit tortor eget felis porttitor volutpat." + \
+            "Cras ultricies ligula sed magna dictum porta. Vivamus suscipit tortor eget felis porttitor volutpat.",
             examples = "",
             is_negative = False,
         ))
@@ -278,7 +322,11 @@ def create_topic_b2(assessment, stakeholders):
             code = "B2.1",
             title = "Gestión de los recursos financieros de forma solidaria y orientada al Bien Común",
             quick_description = "",
-            full_description = "",
+            full_description = "Nulla quis lorem ut libero malesuada feugiat. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem." + \
+            "Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus suscipit tortor eget felis porttitor volutpat." + \
+            "Donec rutrum congue leo eget malesuada. Curabitur aliquet quam id dui posuere blandit." + \
+            "Quisque velit nisi, pretium ut lacinia in, elementum id enim. Vivamus suscipit tortor eget felis porttitor volutpat." + \
+            "Cras ultricies ligula sed magna dictum porta. Vivamus suscipit tortor eget felis porttitor volutpat.",
             examples = "",
             is_negative = False,
         ))
@@ -290,7 +338,11 @@ def create_topic_b2(assessment, stakeholders):
             code = "B2.2",
             title = "Aspecto negativo: repartición injusta de los recursos financieros",
             quick_description = "",
-            full_description = "",
+            full_description = "Nulla quis lorem ut libero malesuada feugiat. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem." + \
+            "Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus suscipit tortor eget felis porttitor volutpat." + \
+            "Donec rutrum congue leo eget malesuada. Curabitur aliquet quam id dui posuere blandit." + \
+            "Quisque velit nisi, pretium ut lacinia in, elementum id enim. Vivamus suscipit tortor eget felis porttitor volutpat." + \
+            "Cras ultricies ligula sed magna dictum porta. Vivamus suscipit tortor eget felis porttitor volutpat.",
             examples = "",
             is_negative = False,
         ))

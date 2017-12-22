@@ -17,7 +17,8 @@ class AssessmentTopicsList(BaseHandler):
     def get(self, request, assessment_id):
         with db_context(db) as context:
 
-            topics = topic_actions.list_topics(context, assessment_id)
+            stakeholder_id = request.query_params.get('stakeholder')
+            topics = topic_actions.list_topics(context, assessment_id, stakeholder_id)
 
             return responses.Ok([
                 to_plain(topic)

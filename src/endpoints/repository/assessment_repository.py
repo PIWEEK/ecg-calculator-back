@@ -89,13 +89,18 @@ class TopicRepository(SQLADTRepository):
     adt = topic_entities.Topic
     table_name = "topics"
 
-    def list_for_assessment(self, context, assessment_id, order_by = None):
+    def list_for_assessment(self, context, assessment_id, stakeholder_id = None, order_by = None):
+        query = select([getattr(self.db, self.table_name)]) \
+            .where(self.db.topics.c.assessment_id == assessment_id) \
+            .order_by(order_by)
+
+        if stakeholder_id:
+            query = query.where(self.db.topics.c.stakeholder_id == stakeholder_id)
+
         return self.db.retrieve_adts(
             context,
             self.adt,
-            select([getattr(self.db, self.table_name)])
-                .where(self.db.topics.c.assessment_id == assessment_id)
-                .order_by(order_by)
+            query
         )
 
     def retrieve_by_id_full(self, context, topic_id):

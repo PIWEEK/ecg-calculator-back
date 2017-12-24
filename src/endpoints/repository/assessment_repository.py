@@ -66,7 +66,7 @@ class FormRepository(SQLADTRepository):
                 )
             ).where(
                 self.db.forms.c.id == form_id
-            ).order_by(self.db.questions.c.order)
+            ).order_by(self.db.questions.c.order, self.db.sub_forms.c.order, self.db.sub_questions.c.order)
         )
 
 

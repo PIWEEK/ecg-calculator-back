@@ -45,6 +45,7 @@ class SubForm(ADT_WITH_ID):
 class SubQuestion(ADT_WITH_ID):
     sub_form_id = IntField()
     order = IntField()
+    columns = IntField()
     slug = StrField()
     title = StrField()
     description = StrField()

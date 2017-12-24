@@ -49,13 +49,14 @@ def create_form_a(assessment, stakeholders):
             form_id = form.id,
             order = 2,
             slug = "providers_sectors",
-            caption = "Introduzca los 5 sectores más importantes a los que realiza compras",
+            caption = "Introduzca los sectores más importantes a los que realiza compras",
             description = "",
         ))
 
         sub_question_repository.create(context, form_entities.SubQuestion(
             sub_form_id = sub_form.id,
             order = 1,
+            columns = 3,
             slug = "provider_sector",
             title = "Sector",
             description = "",
@@ -69,6 +70,7 @@ def create_form_a(assessment, stakeholders):
         sub_question_repository.create(context, form_entities.SubQuestion(
             sub_form_id = sub_form.id,
             order = 2,
+            columns = 3,
             slug = "provider_description",
             title = "Descripción",
             description = "",
@@ -79,6 +81,7 @@ def create_form_a(assessment, stakeholders):
         sub_question_repository.create(context, form_entities.SubQuestion(
             sub_form_id = sub_form.id,
             order = 3,
+            columns = 3,
             slug = "provider_region",
             title = "Región de origen",
             description = "",
@@ -92,6 +95,7 @@ def create_form_a(assessment, stakeholders):
         sub_question_repository.create(context, form_entities.SubQuestion(
             sub_form_id = sub_form.id,
             order = 4,
+            columns = 2,
             slug = "provider_expenses",
             title = "Gastos",
             description = "",

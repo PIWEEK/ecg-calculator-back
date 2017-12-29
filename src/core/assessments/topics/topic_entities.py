@@ -20,8 +20,10 @@ class Aspect(ADT_WITH_ID):
     code = StrField()
     title = StrField()
     quick_description = StrField()
-    full_description = StrField()
-    examples = StrField()
+    valorative_questions = StrField()
+    mandatory_indicators = StrField()
+    evaluation_levels = StrField()
+    explanatory_notes = StrField()
     is_negative = BoolField()
 
 
